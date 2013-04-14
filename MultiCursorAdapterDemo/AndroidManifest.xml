@@ -6,7 +6,7 @@
 
    <uses-sdk
       android:minSdkVersion="10"
-      android:targetSdkVersion="17" />
+      android:targetSdkVersion="10" />
 
    <application
       android:allowBackup="true"
@@ -21,6 +21,12 @@
             <category android:name="android.intent.category.LAUNCHER" />
          </intent-filter>
       </activity>
+
+      <provider
+         android:name=".Provider"
+         android:authorities="eu.the4thfloor.multicursoradapterdemo"
+         android:exported="false" >
+      </provider>
    </application>
 
 </manifest>

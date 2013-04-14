@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.provider.BaseColumns;
 
 
 public class Provider extends ContentProvider {
@@ -22,6 +23,9 @@ public class Provider extends ContentProvider {
 
   private static final String     CONTENT_URI_PATH_TABLE0 = "table0";
   private static final String     CONTENT_URI_PATH_TABLE1 = "table1";
+
+  public static final Uri         CONTENT_URI_TABLE0      = Uri.parse("content://" + Provider.AUTHORITY + "/" + Provider.CONTENT_URI_PATH_TABLE0);
+  public static final Uri         CONTENT_URI_TABLE1      = Uri.parse("content://" + Provider.AUTHORITY + "/" + Provider.CONTENT_URI_PATH_TABLE1);
 
   private static final String     CONTENT_TYPE_TABLE0     = "vnd.android.cursor.dir/vnd." + Provider.AUTHORITY + "."
                                                               + Provider.CONTENT_URI_PATH_TABLE0;
@@ -64,7 +68,7 @@ public class Provider extends ContentProvider {
     }
 
     final SQLiteDatabase db = this.mOpenHelper.getWritableDatabase();
-    final Cursor c = qb.query(db, new String[] { "text" }, selection, selectionArgs, null, null, null);
+    final Cursor c = qb.query(db, new String[] { BaseColumns._ID, "text" }, selection, selectionArgs, null, null, null);
 
     if (c == null) {
       return null;
