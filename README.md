@@ -1,6 +1,6 @@
 ## MultiCursorAdapter
 
-This is a Android CursorAdapter which can handle multiple Cursors as datasource for one ListView.
+This is a Android CursorAdapter which can handle multiple [Cursor](http://developer.android.com/reference/android/database/Cursor.html)s as datasource for one [ListView](http://developer.android.com/reference/android/widget/ListView.html).
 
 #### The MultiCursorAdapter Constructor
 
@@ -59,7 +59,7 @@ The ViewBuilder is the guy who creates the Views. It has 4 methods and all are w
 
 #### Swap the Cursor
 
-Android prefers [Loaders](http://developer.android.com/guide/components/loaders.html) for this loading stuff. You can use it also with the MultiCursorAdapter. In the onLoadFinished you have to swap the cursors. But the MultiCursorAdapter needs a second parameter, the position for the cursor. The position defines the order of all cursors.
+Android prefers [Loaders](http://developer.android.com/guide/components/loaders.html) for this loading stuff. You can use it also with the MultiCursorAdapter. In the [onLoadFinished()](http://developer.android.com/reference/android/app/LoaderManager.LoaderCallbacks.html#onLoadFinished(android.content.Loader<D>, D)) method you have to swap the cursors. But the MultiCursorAdapter needs a second parameter, the position for the cursor. The position defines the order of all cursors.
 
 ```java
   @Override
