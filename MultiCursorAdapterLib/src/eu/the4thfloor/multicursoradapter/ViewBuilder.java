@@ -39,8 +39,7 @@ public abstract class ViewBuilder {
   public abstract int getViewTypeCount();
 
   /**
-   * Get the type of View that will be created by getView(int, View, ViewGroup) for the specified item. <b>This vales must differ from other view
-   * type values of other ViewBuilder in the same MultiCursorAdapter!</b>
+   * Get the type of View that will be created by getView(int, View, ViewGroup) for the specified item.
    * 
    * @param position
    *          The position of the item within the adapter's data set whose view type we want.
