@@ -26,7 +26,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 
-public class MultiCursorAdapter extends BaseAdapter {
+public final class MultiCursorAdapter extends BaseAdapter {
 
 
   private final Context                  mContext;
