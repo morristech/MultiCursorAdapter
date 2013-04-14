@@ -112,7 +112,7 @@ public final class MultiCursorAdapter extends BaseAdapter {
       throw new IllegalStateException(String.format("missing ViewBuilder for cursor at index %d", index));
     }
 
-    return viewBuilder.getItemViewType(realPosition);
+    return calculateAdapterViewType(viewBuilder.getItemViewType(realPosition), index);
   }
 
   @Override
@@ -238,5 +238,17 @@ public final class MultiCursorAdapter extends BaseAdapter {
     }
 
     return real;
+  }
+
+  private int calculateAdapterViewType(final int viewBuilderViewType, final int index) {
+
+    int viewType = 0;
+
+    for (int i = 0; i < index; i++) {
+      viewType += this.mViewTypeCounts.get(i);
+    }
+    viewType += viewBuilderViewType;
+
+    return viewType;
   }
 }
